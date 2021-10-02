@@ -1,23 +1,28 @@
 package lab;
 
 public class Calculator {
-    public static int add(int a, int b) {
+    private static int add(int a, int b) {
         return a + b;
     }
 
-    public static int subtract(int a, int b) {
+    private static int subtract(int a, int b) {
         return a - b;
     }
 
-    public static int multiply(int a, int b) {
+    private static int multiply(int a, int b) {
         return a * b;
     }
 
-    public static int divide(int a, int b) {
-        return (int) Math.round((double) a / (double) b);
+    private static int divide(int a, int b) {
+        if (b == 0) {
+            throw new ArithmeticException();
+        }
+
+        double res = (double) a / (double) b;
+        return res > 0 ? (int) res : (int) (Math.ceil(-res)) * -1;
     }
 
-    public static int xor(int a, int b) {
+    private static int xor(int a, int b) {
         return a ^ b;
     }
 

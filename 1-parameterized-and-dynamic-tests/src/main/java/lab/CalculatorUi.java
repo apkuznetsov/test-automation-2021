@@ -61,7 +61,10 @@ public class CalculatorUi {
             System.out.println(String.format(CHOSEN_OPERATION, operation) + "\n");
 
             int result = calculate(a, b, operation);
-            System.out.println(String.format(OPERATION_RESULT, toBinary(a), operation, toBinary(b), toBinary(result)) + "\n");
+            System.out.println(THERE_IS_BINARY);
+            System.out.println(String.format(OPERATION_RESULT, toBinary(a), operation, toBinary(b), toBinary(result)));
+            System.out.println(THERE_IS_DECIMAL);
+            System.out.println(String.format(OPERATION_RESULT, a, operation, b, result) + "\n");
 
             System.out.println(REPEAT_OR_EXIT);
             in.nextLine();
