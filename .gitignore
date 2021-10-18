@@ -3,3 +3,6 @@
 *.class
 
 */.mvn/wrapper/
+
+2-migration-and-integration-tests/src/main/resources/db/migration/hello-world.sql
+2-migration-and-integration-tests/src/main/resources/db/1-insert-issuing-division.sql
