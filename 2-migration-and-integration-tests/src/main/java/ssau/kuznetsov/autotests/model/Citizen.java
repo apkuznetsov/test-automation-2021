@@ -1,7 +1,10 @@
 package ssau.kuznetsov.autotests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Table(name = "citizen")
 @Entity
@@ -22,6 +25,18 @@ public class Citizen {
     private String birthFedPlace;
     @Column(name = "birth_place", nullable = false)
     private String birthPlace;
+
+    @OneToMany(mappedBy = "citizen", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Passport> passports;
+
+    public List<Passport> getPassports() {
+        return passports;
+    }
+
+    public void setPassports(List<Passport> passports) {
+        this.passports = passports;
+    }
 
     public String getSurname() {
         return surname;

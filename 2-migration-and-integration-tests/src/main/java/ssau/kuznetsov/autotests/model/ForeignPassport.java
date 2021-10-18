@@ -10,15 +10,32 @@ public class ForeignPassport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_number", nullable = false)
     private Long serialNumber;
-    @Column(name = "citizen_id", nullable = false)
-    private Long citizenId;
-    @Column(name = "issuing_division_code", nullable = false)
-    private Long issuingDivisionCode;
-
     @Column(name = "issue_date", nullable = false)
     private Date issueDate;
     @Column(name = "validity_date", nullable = false)
     private Date validityDate;
+    @ManyToOne
+    @JoinColumn(name = "citizen_id")
+    private Citizen citizen;
+    @ManyToOne
+    @JoinColumn(name = "issuing_division_code")
+    private IssuingDivision foreignPassportIssuingDivision;
+
+    public Citizen getCitizen() {
+        return citizen;
+    }
+
+    public void setCitizen(Citizen citizen) {
+        this.citizen = citizen;
+    }
+
+    public IssuingDivision getForeignPassportIssuingDivision() {
+        return foreignPassportIssuingDivision;
+    }
+
+    public void setForeignPassportIssuingDivision(IssuingDivision issuingDivision) {
+        this.foreignPassportIssuingDivision = issuingDivision;
+    }
 
     public Long getSerialNumber() {
         return serialNumber;
@@ -26,22 +43,6 @@ public class ForeignPassport {
 
     public void setSerialNumber(Long code) {
         this.serialNumber = code;
-    }
-
-    public Long getCitizenId() {
-        return citizenId;
-    }
-
-    public void setCitizenId(Long citizenId) {
-        this.citizenId = citizenId;
-    }
-
-    public Long getIssuingDivisionCode() {
-        return issuingDivisionCode;
-    }
-
-    public void setIssuingDivisionCode(Long issuingDivisionCode) {
-        this.issuingDivisionCode = issuingDivisionCode;
     }
 
     public Date getIssueDate() {

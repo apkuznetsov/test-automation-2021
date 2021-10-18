@@ -1,6 +1,9 @@
 package ssau.kuznetsov.autotests.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "issuing_division")
 @Entity
@@ -9,6 +12,32 @@ public class IssuingDivision {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "code", nullable = false)
     private Long code;
+    @Column(name = "name")
+    private String name;
+
+    @OneToMany(mappedBy = "passportIssuingDivision", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<Passport> passports;
+
+    @OneToMany(mappedBy = "foreignPassportIssuingDivision", cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    private List<ForeignPassport> foreignPassports;
+
+    public List<Passport> getPassports() {
+        return passports;
+    }
+
+    public void setPassports(List<Passport> passports) {
+        this.passports = passports;
+    }
+
+    public List<ForeignPassport> getForeignPassports() {
+        return foreignPassports;
+    }
+
+    public void setForeignPassports(List<ForeignPassport> foreignPassports) {
+        this.foreignPassports = foreignPassports;
+    }
 
     public String getName() {
         return name;
@@ -17,9 +46,6 @@ public class IssuingDivision {
     public void setName(String name) {
         this.name = name;
     }
-
-    @Column(name = "name")
-    private String name;
 
     public Long getCode() {
         return code;
