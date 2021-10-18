@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS citizen
 
 CREATE TABLE IF NOT EXISTS passport
 (
-    serial_number serial primary key,
+    serial_number bigserial primary key,
     issuing_division_code serial NOT NULL,
     issue_date date NOT NULL,
     validity_date date NOT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS passport
 
 CREATE TABLE IF NOT EXISTS foreign_passport
 (
-    serial_number serial primary key,
+    serial_number bigserial primary key,
     issuing_division_code serial NOT NULL,
     issue_date date NOT NULL,
     validity_date date NOT NULL,
