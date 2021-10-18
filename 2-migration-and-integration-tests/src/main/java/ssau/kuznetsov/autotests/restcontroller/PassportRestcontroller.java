@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ssau.kuznetsov.autotests.dto.PassportResponse;
 import ssau.kuznetsov.autotests.model.Passport;
 import ssau.kuznetsov.autotests.repository.PassportRepository;
 
@@ -26,7 +27,7 @@ public class PassportRestcontroller {
         if (passport == null) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } else {
-            return new ResponseEntity(passport, HttpStatus.OK);
+            return new ResponseEntity(new PassportResponse(passport), HttpStatus.OK);
         }
     }
 }
