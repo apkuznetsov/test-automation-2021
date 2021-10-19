@@ -27,6 +27,23 @@ public class PassportRestcontroller {
     @Autowired
     private CitizenRepository citRep;
 
+    @GetMapping(path = "/all")
+    public ResponseEntity allPassports() {
+
+        List<Passport> ps = passRep.findAll();
+
+        ResponseEntity response;
+        if (ps == null) {
+            response = new ResponseEntity(HttpStatus.NO_CONTENT);
+        } else {
+            List<PassportResponse> passportResponses = ps.stream()
+                    .map(PassportResponse::new).collect(Collectors.toList());
+            response = new ResponseEntity(passportResponses, HttpStatus.OK);
+        }
+
+        return response;
+    }
+
     @GetMapping(path = "/{serialNumber}")
     public ResponseEntity passportBySerialNumber(
             @PathVariable("serialNumber") long serialNumber) {

@@ -12,5 +12,7 @@ public interface PassportRepository extends JpaRepository<Passport, Long> {
 
     Passport findBySerialNumber(long serialNumber);
 
+    List<Passport> findAll();
+
     List<Passport> findAllByCitizenIdIn(List<Long> citizenIdsList);
 }
