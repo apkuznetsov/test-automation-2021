@@ -16,4 +16,12 @@ public interface CitizenRepository extends JpaRepository<Citizen, Long> {
     List<Citizen> findAllByName(String name);
 
     List<Citizen> findAllByBirthDate(Date birthDate);
+
+    List<Citizen> findAllBySurnameAndNameAndBirthDate(String surname, String name, Date birthDate);
+
+    List<Citizen> findAllBySurnameAndName(String surname, String name);
+
+    List<Citizen> findAllBySurnameAndBirthDate(String surname, Date birthDate);
+
+    List<Citizen> findAllByNameAndBirthDate(String name, Date birthDate);
 }

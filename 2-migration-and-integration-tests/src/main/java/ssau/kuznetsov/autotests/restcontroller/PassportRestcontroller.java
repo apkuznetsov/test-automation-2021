@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.dto.PassportResponse;
-import ssau.kuznetsov.autotests.dto.PassportsResponse;
 import ssau.kuznetsov.autotests.model.Citizen;
 import ssau.kuznetsov.autotests.model.Passport;
 import ssau.kuznetsov.autotests.repository.CitizenRepository;
@@ -76,6 +75,16 @@ public class PassportRestcontroller {
         }
     }
 
+    @GetMapping(path = "/{surname}/{name}/{birthDate}")
+    public ResponseEntity passportsBySurnameNameBirthDate(
+            @PathVariable("surname") String surname,
+            @PathVariable("name") String name,
+            @PathVariable("birthDate") Date birthDate) {
+
+        List<Citizen> cs = citRep.findAllBySurnameAndNameAndBirthDate(surname, name, birthDate);
+        return passportsByCitizens(cs);
+    }
+
     @GetMapping(path = "/surname/{surname}")
     public ResponseEntity passportsBySurname(
             @PathVariable("surname") String surname) {
@@ -97,6 +106,33 @@ public class PassportRestcontroller {
             @PathVariable("birthDate") Date birthDate) {
 
         List<Citizen> cs = citRep.findAllByBirthDate(birthDate);
+        return passportsByCitizens(cs);
+    }
+
+    @GetMapping(path = "/surname/{surname}/name/{name}")
+    public ResponseEntity passportsBySurnameAndName(
+            @PathVariable("surname") String surname,
+            @PathVariable("name") String name) {
+
+        List<Citizen> cs = citRep.findAllBySurnameAndName(surname, name);
+        return passportsByCitizens(cs);
+    }
+
+    @GetMapping(path = "/surname/{surname}/birth-date/{birthDate}")
+    public ResponseEntity passportsBySurnameAndBirthDate(
+            @PathVariable("surname") String surname,
+            @PathVariable("birthDate") Date birthDate) {
+
+        List<Citizen> cs = citRep.findAllBySurnameAndBirthDate(surname, birthDate);
+        return passportsByCitizens(cs);
+    }
+
+    @GetMapping(path = "/name/{name}/birth-date/{birthDate}")
+    public ResponseEntity passportsByNameAndBirthDate(
+            @PathVariable("name") String name,
+            @PathVariable("birthDate") Date birthDate) {
+
+        List<Citizen> cs = citRep.findAllByNameAndBirthDate(name, birthDate);
         return passportsByCitizens(cs);
     }
 }
