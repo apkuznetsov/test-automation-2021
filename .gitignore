@@ -5,5 +5,4 @@
 */.mvn/
 */target/
 
-2-migration-and-integration-tests/src/main/resources/db/migration/hello-world.sql
-2-migration-and-integration-tests/src/main/resources/db/1-insert-issuing-division.sql
+2-integration-testing/src/main/resources/db/migration/V2__Add_issuing_division.sql
