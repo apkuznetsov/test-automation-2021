@@ -60,4 +60,24 @@ public class PassportRestcontroller {
             return new ResponseEntity(passportResponses, HttpStatus.OK);
         }
     }
+
+    @GetMapping(path = "/name/{name}")
+    public ResponseEntity passportsByName(
+            @PathVariable("name") String name) {
+
+        List<Citizen> cs = citRep.findAllByName(name);
+        if (cs == null || cs.isEmpty()) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }
+        List<Long> cIds = cs.stream().map(Citizen::getId).collect(Collectors.toList());
+
+        List<Passport> ps = passRep.findAllByCitizenIdIn(cIds);
+        if (ps == null || ps.isEmpty()) {
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        } else {
+            List<PassportResponse> passportResponses = ps.stream()
+                    .map(PassportResponse::new).collect(Collectors.toList());
+            return new ResponseEntity(passportResponses, HttpStatus.OK);
+        }
+    }
 }
