@@ -21,21 +21,21 @@ import java.util.stream.Collectors;
 public class PassportRestcontroller {
 
     @Autowired
-    private PassportRepository passportRepo;
+    private PassportRepository passRep;
     @Autowired
-    private CitizenRepository citizenRepo;
+    private CitizenRepository citRep;
 
     @GetMapping(path = "/{serialNumber}")
     public ResponseEntity passportBySerialNumber(
             @PathVariable("serialNumber") long serialNumber) {
 
-        Passport passport = passportRepo.findBySerialNumber(serialNumber);
+        Passport p = passRep.findBySerialNumber(serialNumber);
 
         ResponseEntity response;
-        if (passport == null) {
+        if (p == null) {
             response = new ResponseEntity(HttpStatus.NO_CONTENT);
         } else {
-            response = new ResponseEntity(new PassportResponse(passport), HttpStatus.OK);
+            response = new ResponseEntity(new PassportResponse(p), HttpStatus.OK);
         }
 
         return response;
@@ -45,17 +45,17 @@ public class PassportRestcontroller {
     public ResponseEntity passportsBySurname(
             @PathVariable("surname") String surname) {
 
-        List<Citizen> citizens = citizenRepo.findAllBySurname(surname);
-        if (citizens == null || citizens.isEmpty()) {
+        List<Citizen> cs = citRep.findAllBySurname(surname);
+        if (cs == null || cs.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
-        List<Long> citizenIds = citizens.stream().map(Citizen::getId).collect(Collectors.toList());
+        List<Long> cIds = cs.stream().map(Citizen::getId).collect(Collectors.toList());
 
-        List<Passport> passports = passportRepo.findAllByCitizenIdIn(citizenIds);
-        if (passports == null || passports.isEmpty()) {
+        List<Passport> ps = passRep.findAllByCitizenIdIn(cIds);
+        if (ps == null || ps.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         } else {
-            List<PassportResponse> passportResponses = passports.stream()
+            List<PassportResponse> passportResponses = ps.stream()
                     .map(PassportResponse::new).collect(Collectors.toList());
             return new ResponseEntity(passportResponses, HttpStatus.OK);
         }
