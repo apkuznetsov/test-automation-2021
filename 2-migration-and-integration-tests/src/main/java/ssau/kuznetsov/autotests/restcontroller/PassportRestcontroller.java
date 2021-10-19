@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.dto.PassportResponse;
+import ssau.kuznetsov.autotests.dto.PassportsResponse;
 import ssau.kuznetsov.autotests.model.Citizen;
 import ssau.kuznetsov.autotests.model.Passport;
 import ssau.kuznetsov.autotests.repository.CitizenRepository;
 import ssau.kuznetsov.autotests.repository.PassportRepository;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,11 +43,7 @@ public class PassportRestcontroller {
         return response;
     }
 
-    @GetMapping(path = "/surname/{surname}")
-    public ResponseEntity passportsBySurname(
-            @PathVariable("surname") String surname) {
-
-        List<Citizen> cs = citRep.findAllBySurname(surname);
+    private ResponseEntity passportsByCitizens(List<Citizen> cs) {
         if (cs == null || cs.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
@@ -61,23 +59,27 @@ public class PassportRestcontroller {
         }
     }
 
+    @GetMapping(path = "/surname/{surname}")
+    public ResponseEntity passportsBySurname(
+            @PathVariable("surname") String surname) {
+
+        List<Citizen> cs = citRep.findAllBySurname(surname);
+        return passportsByCitizens(cs);
+    }
+
     @GetMapping(path = "/name/{name}")
     public ResponseEntity passportsByName(
             @PathVariable("name") String name) {
 
         List<Citizen> cs = citRep.findAllByName(name);
-        if (cs == null || cs.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
-        }
-        List<Long> cIds = cs.stream().map(Citizen::getId).collect(Collectors.toList());
+        return passportsByCitizens(cs);
+    }
 
-        List<Passport> ps = passRep.findAllByCitizenIdIn(cIds);
-        if (ps == null || ps.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
-        } else {
-            List<PassportResponse> passportResponses = ps.stream()
-                    .map(PassportResponse::new).collect(Collectors.toList());
-            return new ResponseEntity(passportResponses, HttpStatus.OK);
-        }
+    @GetMapping(path = "/birth-date/{birthDate}")
+    public ResponseEntity passportsByName(
+            @PathVariable("birthDate") Date birthDate) {
+
+        List<Citizen> cs = citRep.findAllByBirthDate(birthDate);
+        return passportsByCitizens(cs);
     }
 }
