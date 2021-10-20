@@ -36,7 +36,7 @@ public abstract class BaseIt {
     * to enable reuse, the file /<usersdir>/.testcontainers.properties must be extended
     * by the entry testcontainers.reuse.enable=true */
     static {
-        POSTGRE_SQL_CONTAINER = (PostgreSQLContainer)(new PostgreSQLContainer("postgres:14")
+        POSTGRE_SQL_CONTAINER = (PostgreSQLContainer)(new PostgreSQLContainer("postgres:10.18")
                 .withUsername("testcontainersroot")
                 .withPassword("testcontainersqwerty")
                 .withReuse(true));
