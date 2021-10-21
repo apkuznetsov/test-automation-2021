@@ -26,6 +26,7 @@ public class PassportRepositoryIt extends BaseIt {
     private static final long noSuchSerialNumber = -1;
     private static final String noSuchSurname = "-1";
     private static final String noSuchName = "-1";
+    private static final Date noSuchBirthDate = new Date(0L);
 
     @Test
     @FlywayTest
@@ -157,7 +158,7 @@ public class PassportRepositoryIt extends BaseIt {
 
     @Test
     @FlywayTest
-    public void no_content_when_get_passport_by_no_name() {
+    public void no_content_when_get_passport_by_no_such_name() {
         // arrange
         String testUrl = apiUrl + "surname/" + noSuchName;
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
@@ -170,5 +171,41 @@ public class PassportRepositoryIt extends BaseIt {
         // assert
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
         assertNull(response.getBody());
+    }
+
+    @Test
+    @FlywayTest
+    public void get_correct_passport_by_birthdate() {
+        // arrange
+        String testUrl = apiUrl + "birth-date/" + expectedBirthDate.toString();
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+        Optional<PassportResponse> result = response.getBody().stream()
+                .filter(x -> x.getBirthDate().toString().equals(expectedBirthDate.toString())).findFirst();
+
+        // assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertTrue(result.isPresent());
+    }
+
+    @Test
+    @FlywayTest
+    public void no_content_when_get_passport_by_no_such_birthdate() {
+        // arrange
+        String testUrl = apiUrl + "birth-date/" + noSuchBirthDate.toString();
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+
+        // assert
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        //assertNull(response.getBody());
     }
 }
