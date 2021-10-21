@@ -249,4 +249,46 @@ public class PassportRepositoryIt extends BaseIt {
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
         assertNull(response.getBody());
     }
+
+    @Test
+    @FlywayTest
+    public void get_correct_passport_by_surname_birthdate() {
+        // arrange
+        String testUrl = apiUrl + "surname/" + expectedSurname + "/birth-date/" + expectedBirthDate.toString();
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+        Optional<PassportResponse> result = response.getBody().stream()
+                .filter(x -> {
+                    String[] word = x.getFullName().split(" ");
+                    return word[0].equals(expectedSurname)
+                            && x.getBirthDate().toString()
+                            .equals(expectedBirthDate.toString());
+                })
+                .findFirst();
+
+        // assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertTrue(result.isPresent());
+    }
+
+    @Test
+    @FlywayTest
+    public void no_content_when_get_passport_by_no_such_surname_birthdate() {
+        // arrange
+        String testUrl = apiUrl + "surname/" + noSuchSurname + "/birth-date/" + expectedBirthDate.toString();
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+
+        // assert
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertNull(response.getBody());
+    }
 }
