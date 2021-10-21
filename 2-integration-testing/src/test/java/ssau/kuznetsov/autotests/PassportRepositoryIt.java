@@ -8,9 +8,9 @@ import ssau.kuznetsov.autotests.dto.PassportResponse;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PassportRepositoryIt extends BaseIt {
 
@@ -96,5 +96,24 @@ public class PassportRepositoryIt extends BaseIt {
         // assert
         assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
         assertNull(response.getBody());
+    }
+
+    @Test
+    @FlywayTest
+    public void get_correct_passport_by_surname() {
+        // arrange
+        String testUrl = apiPath + "surname/" + expectedSurname;
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+        Optional<PassportResponse> result = response.getBody().stream()
+                .filter(x -> x.getFullName().equals(expectedFullName)).findFirst();
+
+        // assert
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertTrue(result.isPresent());
     }
 }
