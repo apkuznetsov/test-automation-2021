@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PassportRepositoryIt extends BaseIt {
 
-    private static final String apiPath = "/api/passport/";
+    private static final String apiUrl = "/api/passport/";
 
     private static final long expectedSerialNumber = 1678756113;
     private static final String expectedFullName = "Морозов Артём Тимофеевич";
@@ -22,14 +22,15 @@ public class PassportRepositoryIt extends BaseIt {
     private static final String expectedName = "Артём";
     private static final Date expectedBirthDate = Date.valueOf("1957-10-08");
     private static final Date expectedIssueDate = Date.valueOf("2012-05-17");
+
     private static final long noSuchSerialNumber = -1;
-    private static final String noSuchSurname = "Aaaaa";
+    private static final String noSuchSurname = "-1";
 
     @Test
     @FlywayTest
     public void get_correct_passport_by_serial_number() {
         // arrange
-        String testUrl = apiPath + expectedSerialNumber;
+        String testUrl = apiUrl + expectedSerialNumber;
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
@@ -48,7 +49,7 @@ public class PassportRepositoryIt extends BaseIt {
     @FlywayTest
     public void no_content_when_get_passport_by_no_such_serial_number() {
         // arrange
-        String testUrl = apiPath + noSuchSerialNumber;
+        String testUrl = apiUrl + noSuchSerialNumber;
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
@@ -66,7 +67,7 @@ public class PassportRepositoryIt extends BaseIt {
     @FlywayTest
     public void get_correct_passport_by_surname_name_birthdate() {
         // arrange
-        String testUrl = apiPath + expectedSurname + "/" + expectedName + "/" + expectedBirthDate.toString();
+        String testUrl = apiUrl + expectedSurname + "/" + expectedName + "/" + expectedBirthDate.toString();
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
@@ -85,7 +86,7 @@ public class PassportRepositoryIt extends BaseIt {
     @FlywayTest
     public void no_content_when_get_passport_by_no_such_surname_name_birthdate() {
         // arrange
-        String testUrl = apiPath + noSuchSurname + "/" + expectedName + "/" + expectedBirthDate.toString();
+        String testUrl = apiUrl + noSuchSurname + "/" + expectedName + "/" + expectedBirthDate.toString();
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
@@ -102,7 +103,7 @@ public class PassportRepositoryIt extends BaseIt {
     @FlywayTest
     public void get_correct_passport_by_surname() {
         // arrange
-        String testUrl = apiPath + "surname/" + expectedSurname;
+        String testUrl = apiUrl + "surname/" + expectedSurname;
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
