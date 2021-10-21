@@ -23,15 +23,18 @@ public class Passport {
     private IssuingDivision passportIssuingDivision;
 
     public Passport() {
-        this.serialNumber = 0L;
-        this.issueDate = new Date(0L);
-        this.validityDate = new Date(0L);
     }
 
     public Passport(long serialNumber, Date issueDate, Date validityDate) {
         this.serialNumber = serialNumber;
         this.issueDate = issueDate;
         this.validityDate = validityDate;
+    }
+
+    public Passport(long serialNumber, String issueDate, String validityDate) {
+        this.serialNumber = serialNumber;
+        this.issueDate = Date.valueOf(issueDate);
+        this.validityDate = Date.valueOf(issueDate);
     }
 
     public Long getSerialNumber() {
