@@ -18,6 +18,9 @@ public class PassportResponse implements Serializable {
     private long issuingDivisionCode;
     private Date issueDate;
 
+    public PassportResponse() {
+    }
+
     public PassportResponse(Passport p) {
         Citizen c = p.getCitizen();
         IssuingDivision i = p.getPassportIssuingDivision();

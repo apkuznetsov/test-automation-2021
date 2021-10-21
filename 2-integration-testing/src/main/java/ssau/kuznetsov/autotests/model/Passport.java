@@ -22,12 +22,19 @@ public class Passport {
     @JoinColumn(name = "issuing_division_code")
     private IssuingDivision passportIssuingDivision;
 
-    public IssuingDivision getPassportIssuingDivision() {
-        return passportIssuingDivision;
+    public Passport() {
     }
 
-    public void setPassportIssuingDivision(IssuingDivision issuingDivision) {
-        this.passportIssuingDivision = issuingDivision;
+    public Passport(long serialNumber, Date issueDate, Date validityDate) {
+        this.serialNumber = serialNumber;
+        this.issueDate = issueDate;
+        this.validityDate = validityDate;
+    }
+
+    public Passport(long serialNumber, String issueDate, String validityDate) {
+        this.serialNumber = serialNumber;
+        this.issueDate = Date.valueOf(issueDate);
+        this.validityDate = Date.valueOf(issueDate);
     }
 
     public Long getSerialNumber() {
@@ -36,14 +43,6 @@ public class Passport {
 
     public void setSerialNumber(Long code) {
         this.serialNumber = code;
-    }
-
-    public Citizen getCitizen() {
-        return citizen;
-    }
-
-    public void setCitizen(Citizen citizen) {
-        this.citizen = citizen;
     }
 
     public Date getIssueDate() {
@@ -60,5 +59,21 @@ public class Passport {
 
     public void setValidityDate(Date validityDate) {
         this.validityDate = validityDate;
+    }
+
+    public Citizen getCitizen() {
+        return citizen;
+    }
+
+    public void setCitizen(Citizen citizen) {
+        this.citizen = citizen;
+    }
+
+    public IssuingDivision getPassportIssuingDivision() {
+        return passportIssuingDivision;
+    }
+
+    public void setPassportIssuingDivision(IssuingDivision issuingDivision) {
+        this.passportIssuingDivision = issuingDivision;
     }
 }
