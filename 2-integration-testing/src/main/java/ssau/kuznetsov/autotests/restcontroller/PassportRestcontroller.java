@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/passport")
+@RequestMapping("/api/passport/")
 public class PassportRestcontroller {
 
     @Autowired
@@ -26,7 +26,7 @@ public class PassportRestcontroller {
     @Autowired
     private CitizenRepository citRep;
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "all")
     public ResponseEntity allPassports() {
 
         List<Passport> ps = passRep.findAll();
@@ -43,7 +43,7 @@ public class PassportRestcontroller {
         return response;
     }
 
-    @GetMapping(path = "/{serialNumber}")
+    @GetMapping(path = "{serialNumber}")
     public ResponseEntity passportBySerialNumber(
             @PathVariable("serialNumber") long serialNumber) {
 
@@ -75,7 +75,7 @@ public class PassportRestcontroller {
         }
     }
 
-    @GetMapping(path = "/{surname}/{name}/{birthDate}")
+    @GetMapping(path = "{surname}/{name}/{birthDate}")
     public ResponseEntity passportsBySurnameNameBirthDate(
             @PathVariable("surname") String surname,
             @PathVariable("name") String name,
@@ -85,7 +85,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/surname/{surname}")
+    @GetMapping(path = "surname/{surname}")
     public ResponseEntity passportsBySurname(
             @PathVariable("surname") String surname) {
 
@@ -93,7 +93,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/name/{name}")
+    @GetMapping(path = "name/{name}")
     public ResponseEntity passportsByName(
             @PathVariable("name") String name) {
 
@@ -101,7 +101,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/birth-date/{birthDate}")
+    @GetMapping(path = "birth-date/{birthDate}")
     public ResponseEntity passportsByName(
             @PathVariable("birthDate") Date birthDate) {
 
@@ -109,7 +109,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/surname/{surname}/name/{name}")
+    @GetMapping(path = "surname/{surname}/name/{name}")
     public ResponseEntity passportsBySurnameAndName(
             @PathVariable("surname") String surname,
             @PathVariable("name") String name) {
@@ -118,7 +118,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/surname/{surname}/birth-date/{birthDate}")
+    @GetMapping(path = "surname/{surname}/birth-date/{birthDate}")
     public ResponseEntity passportsBySurnameAndBirthDate(
             @PathVariable("surname") String surname,
             @PathVariable("birthDate") Date birthDate) {
@@ -127,7 +127,7 @@ public class PassportRestcontroller {
         return passportsByCitizens(cs);
     }
 
-    @GetMapping(path = "/name/{name}/birth-date/{birthDate}")
+    @GetMapping(path = "name/{name}/birth-date/{birthDate}")
     public ResponseEntity passportsByNameAndBirthDate(
             @PathVariable("name") String name,
             @PathVariable("birthDate") Date birthDate) {
