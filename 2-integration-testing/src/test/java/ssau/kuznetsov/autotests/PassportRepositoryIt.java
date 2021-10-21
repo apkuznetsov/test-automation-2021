@@ -23,6 +23,7 @@ public class PassportRepositoryIt extends BaseIt {
     private static final Date expectedBirthDate = Date.valueOf("1957-10-08");
     private static final Date expectedIssueDate = Date.valueOf("2012-05-17");
     private static final long noSuchSerialNumber = -1;
+    private static final String noSuchSurname = "Aaaaa";
 
     @Test
     @FlywayTest
@@ -78,5 +79,22 @@ public class PassportRepositoryIt extends BaseIt {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedFullName, result.getFullName());
         assertEquals(expectedIssueDate.toString(), result.getIssueDate().toString());
+    }
+
+    @Test
+    @FlywayTest
+    public void no_content_when_get_passport_by_no_such_surname_name_birthdate() {
+        // arrange
+        String testUrl = apiPath + noSuchSurname + "/" + expectedName + "/" + expectedBirthDate.toString();
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+
+        // act
+        final ResponseEntity<List<PassportResponse>> response = restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
+
+        // assert
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertNull(response.getBody());
     }
 }
