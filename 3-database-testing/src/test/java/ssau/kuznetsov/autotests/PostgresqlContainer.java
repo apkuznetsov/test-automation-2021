@@ -18,7 +18,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 @ActiveProfiles("it")
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
         FlywayTestExecutionListener.class })
-public abstract class BaseIt {
+public abstract class PostgresqlContainer {
 
     // using it to send calls to our application's REST API
     @Autowired

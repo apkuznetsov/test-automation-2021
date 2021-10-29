@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PassportRestcontrollerIt extends BaseIt {
+public class PassportRestcontrollerIt extends PostgresqlContainer {
 
     private static final String apiUrl = "/api/passport/";
 
