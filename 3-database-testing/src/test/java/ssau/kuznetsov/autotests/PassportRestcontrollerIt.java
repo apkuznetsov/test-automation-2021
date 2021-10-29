@@ -2,6 +2,8 @@ package ssau.kuznetsov.autotests;
 
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import ssau.kuznetsov.autotests.dto.PassportResponse;
@@ -15,18 +17,19 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PassportRestcontrollerIt extends PostgresqlContainer {
 
     private static final String apiUrl = "/api/passport/";
-
     private static final long expectedSerialNumber = 1678756113;
     private static final String expectedFullName = "Морозов Артём Тимофеевич";
     private static final String expectedSurname = "Морозов";
     private static final String expectedName = "Артём";
     private static final Date expectedBirthDate = Date.valueOf("1957-10-08");
     private static final Date expectedIssueDate = Date.valueOf("2012-05-17");
-
     private static final long noSuchSerialNumber = -1;
     private static final String noSuchSurname = "-1";
     private static final String noSuchName = "-1";
     private static final Date noSuchBirthDate = new Date(0L);
+    // using it to send calls to our application's REST API
+    @Autowired
+    public TestRestTemplate restTemplate;
 
     @Test
     @FlywayTest
@@ -196,7 +199,7 @@ public class PassportRestcontrollerIt extends PostgresqlContainer {
     @FlywayTest
     public void no_content_when_get_passport_by_no_such_birthdate() {
         // arrange
-        String testUrl = apiUrl + "birth-date/" + noSuchBirthDate.toString();
+        String testUrl = apiUrl + "birth-date/" + noSuchBirthDate;
         final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
 
         // act
