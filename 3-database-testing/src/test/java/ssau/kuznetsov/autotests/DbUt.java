@@ -1,20 +1,31 @@
 package ssau.kuznetsov.autotests;
 
+import org.dbunit.Assertion;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
-import org.junit.Before;
+import org.dbunit.dataset.ITable;
+import org.flywaydb.test.annotation.FlywayTest;
+import org.junit.jupiter.api.Test;
 
 public class DbUt extends PostgresqlContainer {
 
-    private IDatabaseTester tester;
+    private final IDatabaseTester tester;
 
-    @Before
-    public void setUp() throws Exception {
+    public DbUt() throws ClassNotFoundException {
         tester = new JdbcDatabaseTester(
-                "org.postgresql.Driver",
-                "jdbc:postgresql://localhost:5432/passport_db",
-                "root",
-                "qwerty"
+                POSTGRE_SQL_CONTAINER.getDriverClassName(),
+                POSTGRE_SQL_CONTAINER.getJdbcUrl(),
+                POSTGRE_SQL_CONTAINER.getUsername(),
+                POSTGRE_SQL_CONTAINER.getPassword()
         );
+    }
+
+    @Test
+    @FlywayTest
+    public void sample() throws Exception {
+        ITable expectedTable = tester.getConnection().createDataSet().getTable("passport");
+        ITable actualTable = tester.getConnection().createDataSet().getTable("passport");
+
+        Assertion.assertEquals(expectedTable, actualTable);
     }
 }

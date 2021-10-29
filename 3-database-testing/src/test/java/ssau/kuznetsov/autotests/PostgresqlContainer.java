@@ -18,7 +18,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
         FlywayTestExecutionListener.class})
 public abstract class PostgresqlContainer {
 
-    private static final PostgreSQLContainer POSTGRE_SQL_CONTAINER;
+    protected static final PostgreSQLContainer POSTGRE_SQL_CONTAINER;
 
     /* in the static section, the POSTGRE_SQL_CONTAINER is configured and started
      *
