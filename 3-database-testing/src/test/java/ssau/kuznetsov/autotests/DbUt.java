@@ -49,4 +49,17 @@ public class DbUt extends PostgresqlContainer {
 
         Assertion.assertEquals(xml, db);
     }
+
+    @Test
+    @FlywayTest
+    public void is_foreign_passport_table_there() throws Exception {
+        ITable xml = new SortedTable(
+                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-foreign-passport.xml"))
+                        .getTable("foreign_passport"));
+        ITable db = new SortedTable(
+                tester.getConnection().createDataSet()
+                        .getTable("foreign_passport"));
+
+        Assertion.assertEquals(xml, db);
+    }
 }
