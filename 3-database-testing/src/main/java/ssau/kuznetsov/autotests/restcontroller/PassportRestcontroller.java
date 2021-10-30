@@ -135,4 +135,9 @@ public class PassportRestcontroller {
         List<Citizen> cs = citRep.findAllByNameAndBirthDate(name, birthDate);
         return passportsByCitizens(cs);
     }
+
+    @GetMapping("citizen/{id}")
+    public void deleteCitizen(@PathVariable("id") long id) {
+        citRep.deleteById(id);
+    }
 }
