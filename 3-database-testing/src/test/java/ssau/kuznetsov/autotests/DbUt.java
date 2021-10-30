@@ -4,6 +4,7 @@ import org.dbunit.Assertion;
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.dataset.ITable;
+import org.dbunit.dataset.SortedTable;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
@@ -31,5 +32,18 @@ public class DbUt extends PostgresqlContainer {
         ITable actualTable = tester.getConnection().createDataSet().getTable("citizen");
 
         Assertion.assertEquals(expectedTable, actualTable);
+    }
+
+    @Test
+    @FlywayTest
+    public void is_passport_table_there() throws Exception {
+        ITable xml = new SortedTable(
+                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-passport.xml"))
+                        .getTable("passport"));
+        ITable db = new SortedTable(
+                tester.getConnection().createDataSet()
+                        .getTable("passport"));
+
+        Assertion.assertEquals(xml, db);
     }
 }
