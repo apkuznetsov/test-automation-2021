@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-    <passport serial_number='1678756113' issuing_division_code='100001'
-              issue_date='2012-05-17' validity_date='2031-09-10' citizen_id='26'/>
-    <passport serial_number='8072485678' issuing_division_code='100007'
-              issue_date='2013-10-16' validity_date='2032-12-27' citizen_id='38'/>
+    <passport serial_number='1678756113' citizen_id='26' issuing_division_code='100001'
+              issue_date='2012-05-17' validity_date='2031-09-10'/>
+    <passport serial_number='8072485678' citizen_id='38' issuing_division_code='100007'
+              issue_date='2013-10-16' validity_date='2032-12-27'/>
     <passport serial_number='2139705492' citizen_id='15' issuing_division_code='100004'
               issue_date='2008-01-18' validity_date='2027-12-01'/>
     <passport serial_number='2759852403' citizen_id='40' issuing_division_code='100014'
