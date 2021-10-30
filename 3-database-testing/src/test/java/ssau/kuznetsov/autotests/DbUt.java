@@ -27,11 +27,14 @@ public class DbUt extends PostgresqlContainer {
     @Test
     @FlywayTest
     public void is_citizen_table_there() throws Exception {
-        ITable expectedTable = new FlatXmlDataSetBuilder().build(
-                new FileInputStream("dataset-citizen.xml")).getTable("citizen");
-        ITable actualTable = tester.getConnection().createDataSet().getTable("citizen");
+        ITable xml = new SortedTable(
+                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-citizen.xml"))
+                        .getTable("citizen"));
+        ITable db = new SortedTable(
+                tester.getConnection().createDataSet()
+                        .getTable("citizen"));
 
-        Assertion.assertEquals(expectedTable, actualTable);
+        Assertion.assertEquals(xml, db);
     }
 
     @Test
