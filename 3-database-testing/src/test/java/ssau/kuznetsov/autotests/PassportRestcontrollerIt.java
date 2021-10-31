@@ -2,8 +2,6 @@ package ssau.kuznetsov.autotests;
 
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import ssau.kuznetsov.autotests.dto.PassportResponse;
@@ -27,9 +25,6 @@ public class PassportRestcontrollerIt extends PostgresqlContainer {
     private static final String noSuchSurname = "-1";
     private static final String noSuchName = "-1";
     private static final Date noSuchBirthDate = new Date(0L);
-    // using it to send calls to our application's REST API
-    @Autowired
-    public TestRestTemplate restTemplate;
 
     @Test
     @FlywayTest

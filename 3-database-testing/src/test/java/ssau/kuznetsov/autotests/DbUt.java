@@ -1,32 +1,19 @@
 package ssau.kuznetsov.autotests;
 
 import org.dbunit.Assertion;
-import org.dbunit.IDatabaseTester;
-import org.dbunit.JdbcDatabaseTester;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.SortedTable;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import ssau.kuznetsov.autotests.repository.CitizenRepository;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 
 import java.io.FileInputStream;
 
 public class DbUt extends PostgresqlContainer {
-
-    private final IDatabaseTester tester;
-    @Autowired
-    CitizenRepository citRep;
-
-    public DbUt() throws ClassNotFoundException {
-        tester = new JdbcDatabaseTester(
-                POSTGRE_SQL_CONTAINER.getDriverClassName(),
-                POSTGRE_SQL_CONTAINER.getJdbcUrl(),
-                POSTGRE_SQL_CONTAINER.getUsername(),
-                POSTGRE_SQL_CONTAINER.getPassword()
-        );
-    }
 
     @Test
     @FlywayTest
