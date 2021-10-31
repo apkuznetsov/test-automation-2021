@@ -58,18 +58,22 @@ public class DbUt extends PostgresqlContainer {
     @Test
     @FlywayTest
     public void citizen_11_deleted_with_his_passports() throws Exception {
-        citRep.deleteById(11L);
+        String testUrl = "/api/passport/citizen/11";
+        final HttpEntity<String> request = new HttpEntity<>(null, new HttpHeaders());
+        restTemplate.exchange(
+                testUrl, HttpMethod.GET, request, new ParameterizedTypeReference<>() {
+                });
 
         IDataSet db = tester.getConnection().createDataSet();
 
         ITable xml_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
-                new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
-                        .getTable("passport"));
+                        new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
+                .getTable("passport"));
         ITable db_passports = new SortedTable(db.getTable("passport"));
 
         ITable xml_foreign_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
-                new FileInputStream("dataset-foreign-passport-deleted-citizen-11.xml"))
-                        .getTable("foreign_passport"));
+                        new FileInputStream("dataset-foreign-passport-deleted-citizen-11.xml"))
+                .getTable("foreign_passport"));
         ITable db_foreign_passports = new SortedTable(db.getTable("foreign_passport"));
 
         Assertion.assertEquals(xml_passports, db_passports);
