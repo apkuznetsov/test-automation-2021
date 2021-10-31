@@ -1,6 +1,7 @@
 package ssau.kuznetsov.autotests;
 
 import org.dbunit.Assertion;
+import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.SortedTable;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
@@ -59,19 +60,17 @@ public class DbUt extends PostgresqlContainer {
     public void citizen_11_deleted_with_his_passports() throws Exception {
         citRep.deleteById(11L);
 
-        ITable xml_passports = new SortedTable(
-                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
-                        .getTable("passport"));
-        ITable db_passports = new SortedTable(
-                tester.getConnection().createDataSet()
-                        .getTable("passport"));
+        IDataSet db = tester.getConnection().createDataSet();
 
-        ITable xml_foreign_passports = new SortedTable(
-                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-foreign-passport-deleted-citizen-11.xml"))
+        ITable xml_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
+                new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
+                        .getTable("passport"));
+        ITable db_passports = new SortedTable(db.getTable("passport"));
+
+        ITable xml_foreign_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
+                new FileInputStream("dataset-foreign-passport-deleted-citizen-11.xml"))
                         .getTable("foreign_passport"));
-        ITable db_foreign_passports = new SortedTable(
-                tester.getConnection().createDataSet()
-                        .getTable("foreign_passport"));
+        ITable db_foreign_passports = new SortedTable(db.getTable("foreign_passport"));
 
         Assertion.assertEquals(xml_passports, db_passports);
         Assertion.assertEquals(xml_foreign_passports, db_foreign_passports);
