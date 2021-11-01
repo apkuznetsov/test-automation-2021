@@ -15,10 +15,8 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import ssau.kuznetsov.autotests.repository.CitizenRepository;
+import ssau.kuznetsov.autotests.repository.PassportRepository;
 
-/* with @ActiveProfiles we define that
- * the application is started with the profile "it";
- * if needed, we can use this profile to activate special settings in our code */
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(initializers = PostgresqlContainer.Initializer.class)
@@ -51,7 +49,9 @@ public class PostgresqlContainer {
     @Autowired
     public TestRestTemplate restTemplate;
     @Autowired
-    CitizenRepository citRep;
+    public CitizenRepository citRep;
+    @Autowired
+    public PassportRepository passRep;
 
     public static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
