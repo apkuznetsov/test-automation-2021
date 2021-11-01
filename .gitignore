@@ -6,3 +6,4 @@
 */target/
 
 2-integration-testing/src/main/resources/db/migration/V2__Add_issuing_division.sql
+3-database-testing/dataset-valid-passport-view.xml
