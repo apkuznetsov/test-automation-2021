@@ -79,4 +79,19 @@ public class DbUt extends PostgresqlContainer {
         Assertion.assertEquals(xml_passports, db_passports);
         Assertion.assertEquals(xml_foreign_passports, db_foreign_passports);
     }
+
+    @Test
+    @FlywayTest
+    public void is_valid_password_view_there_when_call_create_it_procedure() throws Exception {
+        passRep.callCreateValidPassportView();
+
+        ITable xml = new SortedTable(
+                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-valid-passport-view.xml"))
+                        .getTable("valid_passport_view"));
+        ITable db = new SortedTable(
+                tester.getConnection()
+                        .createQueryTable("valid_passport_view", "SELECT * from valid_passport_view"));
+
+        Assertion.assertEquals(xml, db);
+    }
 }
