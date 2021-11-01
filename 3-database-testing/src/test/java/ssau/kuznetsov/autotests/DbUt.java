@@ -66,6 +66,11 @@ public class DbUt extends PostgresqlContainer {
 
         IDataSet db = tester.getConnection().createDataSet();
 
+        ITable xml_citizen = new SortedTable(new FlatXmlDataSetBuilder().build(
+                        new FileInputStream("dataset-citizen-deleted-citizen-11.xml"))
+                .getTable("citizen"));
+        ITable db_citizen = new SortedTable(db.getTable("citizen"));
+
         ITable xml_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
                         new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
                 .getTable("passport"));
@@ -76,6 +81,7 @@ public class DbUt extends PostgresqlContainer {
                 .getTable("foreign_passport"));
         ITable db_foreign_passports = new SortedTable(db.getTable("foreign_passport"));
 
+        Assertion.assertEquals(xml_citizen, db_citizen);
         Assertion.assertEquals(xml_passports, db_passports);
         Assertion.assertEquals(xml_foreign_passports, db_foreign_passports);
     }
