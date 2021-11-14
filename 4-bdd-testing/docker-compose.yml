@@ -1,0 +1,17 @@
+# The docker-compose.yml file describes the services that make your app. In this example those services are a web server and database.
+
+version: "3.8"
+   
+services:
+    pgdb:
+        image: postgres
+        container_name: pgdb
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+        volumes:
+            - pgdata:/var/lib/postgresql/data/
+volumes:
+    pgdata:
+
