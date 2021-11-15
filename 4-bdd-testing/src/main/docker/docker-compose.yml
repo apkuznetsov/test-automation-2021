@@ -1,17 +1,22 @@
-# The docker-compose.yml file describes the services that make your app. In this example those services are a web server and database.
+version: '2.2'
 
-version: "3.8"
-   
 services:
-    pgdb:
-        image: postgres
-        container_name: pgdb
-        environment:
-            - POSTGRES_DB=postgres
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=postgres
-        volumes:
-            - pgdata:/var/lib/postgresql/data/
-volumes:
-    pgdata:
-
+  app:
+    image: 'autotests:latest'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+          
+  db:
+    image: 'postgres:10.18'
+    container_name: db
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
