@@ -6,3 +6,4 @@
 */target/
 
 2-integration-testing/src/main/resources/db/migration/V2__Add_issuing_division.sql
+4-bdd-testing/src/main/docker/autotests-0.0.1.jar
