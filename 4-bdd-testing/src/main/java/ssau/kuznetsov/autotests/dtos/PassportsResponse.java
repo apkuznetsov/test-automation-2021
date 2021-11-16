@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.dto;
+package ssau.kuznetsov.autotests.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
