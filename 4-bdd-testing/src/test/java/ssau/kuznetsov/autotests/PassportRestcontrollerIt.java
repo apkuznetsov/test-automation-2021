@@ -4,6 +4,7 @@ import org.flywaydb.test.annotation.FlywayTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import ssau.kuznetsov.autotests.configs.PostgresConfig;
 import ssau.kuznetsov.autotests.dto.PassportResponse;
 
 import java.sql.Date;

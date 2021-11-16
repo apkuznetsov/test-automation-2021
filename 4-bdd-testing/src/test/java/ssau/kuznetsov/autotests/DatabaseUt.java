@@ -11,6 +11,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import ssau.kuznetsov.autotests.configs.PostgresConfig;
 
 import java.io.FileInputStream;
 

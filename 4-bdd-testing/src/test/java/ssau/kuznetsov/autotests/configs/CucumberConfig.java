@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests;
+package ssau.kuznetsov.autotests.configs;
 
 import io.cucumber.java.Before;
 import org.slf4j.Logger;
@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ContextConfiguration;
+import ssau.kuznetsov.autotests.App;
 
 // class to use Spring app context while running Cucumber
 @SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
