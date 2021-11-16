@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.dtos.PassportResponse;
 import ssau.kuznetsov.autotests.models.Citizen;
 import ssau.kuznetsov.autotests.models.Passport;
-import ssau.kuznetsov.autotests.repos.CitizenRepository;
+import ssau.kuznetsov.autotests.repos.CitizenRepo;
 import ssau.kuznetsov.autotests.repos.PassportRepository;
 
 import java.sql.Date;
@@ -24,7 +24,7 @@ public class PassportRestcontroller {
     @Autowired
     private PassportRepository passRep;
     @Autowired
-    private CitizenRepository citRep;
+    private CitizenRepo citRep;
 
     @GetMapping(path = "all")
     public ResponseEntity allPassports() {

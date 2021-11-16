@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Repository
-public interface CitizenRepository extends JpaRepository<Citizen, Long> {
+public interface CitizenRepo extends JpaRepository<Citizen, Long> {
 
     List<Citizen> findAllBySurname(String surname);
 
