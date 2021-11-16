@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests;
+package ssau.kuznetsov.autotests.configs;
 
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;
@@ -21,10 +21,10 @@ import ssau.kuznetsov.autotests.repository.PassportRepository;
 @ActiveProfiles("test")
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ContextConfiguration(initializers = PostgresqlContainer.Initializer.class)
+@ContextConfiguration(initializers = PostgresConfig.Initializer.class)
 @TestExecutionListeners({DependencyInjectionTestExecutionListener.class,
         FlywayTestExecutionListener.class})
-public class PostgresqlContainer {
+public class PostgresConfig {
 
     public static PostgreSQLContainer<?> postgresqlContainer;
 
