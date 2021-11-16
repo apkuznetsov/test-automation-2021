@@ -16,7 +16,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import ssau.kuznetsov.autotests.repos.CitizenRepo;
-import ssau.kuznetsov.autotests.repos.PassportRepository;
+import ssau.kuznetsov.autotests.repos.PassportRepo;
 
 @ActiveProfiles("test")
 @Testcontainers
@@ -53,7 +53,7 @@ public class PostgresConfig {
     @Autowired
     public CitizenRepo citRep;
     @Autowired
-    public PassportRepository passRep;
+    public PassportRepo passRep;
 
     public static class Initializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override

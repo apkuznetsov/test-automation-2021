@@ -8,7 +8,7 @@ import ssau.kuznetsov.autotests.models.Passport;
 import java.util.List;
 
 @Repository
-public interface PassportRepository extends JpaRepository<Passport, Long> {
+public interface PassportRepo extends JpaRepository<Passport, Long> {
 
     Passport findBySerialNumber(long serialNumber);
 

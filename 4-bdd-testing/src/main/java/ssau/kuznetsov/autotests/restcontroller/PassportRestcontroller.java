@@ -11,7 +11,7 @@ import ssau.kuznetsov.autotests.dtos.PassportResponse;
 import ssau.kuznetsov.autotests.models.Citizen;
 import ssau.kuznetsov.autotests.models.Passport;
 import ssau.kuznetsov.autotests.repos.CitizenRepo;
-import ssau.kuznetsov.autotests.repos.PassportRepository;
+import ssau.kuznetsov.autotests.repos.PassportRepo;
 
 import java.sql.Date;
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class PassportRestcontroller {
 
     @Autowired
-    private PassportRepository passRep;
+    private PassportRepo passRep;
     @Autowired
     private CitizenRepo citRep;
 
