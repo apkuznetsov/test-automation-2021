@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import ssau.kuznetsov.autotests.configs.PostgresConfig;
-import ssau.kuznetsov.autotests.dto.PassportResponse;
+import ssau.kuznetsov.autotests.dtos.PassportResponse;
 
 import java.sql.Date;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PassportRestcontrollerIt extends PostgresConfig {
+public class PassportControllerIt extends PostgresConfig {
 
     private static final String apiUrl = "/api/passport/";
     private static final long expectedSerialNumber = 1678756113;

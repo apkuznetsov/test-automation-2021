@@ -1,9 +1,9 @@
-package ssau.kuznetsov.autotests.dto;
+package ssau.kuznetsov.autotests.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ssau.kuznetsov.autotests.model.Citizen;
-import ssau.kuznetsov.autotests.model.IssuingDivision;
-import ssau.kuznetsov.autotests.model.Passport;
+import ssau.kuznetsov.autotests.models.Citizen;
+import ssau.kuznetsov.autotests.models.IssuingDivision;
+import ssau.kuznetsov.autotests.models.Passport;
 
 import java.io.Serializable;
 import java.sql.Date;

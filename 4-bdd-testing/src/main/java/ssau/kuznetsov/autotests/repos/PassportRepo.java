@@ -1,14 +1,14 @@
-package ssau.kuznetsov.autotests.repository;
+package ssau.kuznetsov.autotests.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ssau.kuznetsov.autotests.model.Passport;
+import ssau.kuznetsov.autotests.models.Passport;
 
 import java.util.List;
 
 @Repository
-public interface PassportRepository extends JpaRepository<Passport, Long> {
+public interface PassportRepo extends JpaRepository<Passport, Long> {
 
     Passport findBySerialNumber(long serialNumber);
 

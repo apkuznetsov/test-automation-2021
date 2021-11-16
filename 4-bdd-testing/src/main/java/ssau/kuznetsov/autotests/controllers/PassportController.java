@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.restcontroller;
+package ssau.kuznetsov.autotests.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ssau.kuznetsov.autotests.dto.PassportResponse;
-import ssau.kuznetsov.autotests.model.Citizen;
-import ssau.kuznetsov.autotests.model.Passport;
-import ssau.kuznetsov.autotests.repository.CitizenRepository;
-import ssau.kuznetsov.autotests.repository.PassportRepository;
+import ssau.kuznetsov.autotests.dtos.PassportResponse;
+import ssau.kuznetsov.autotests.models.Citizen;
+import ssau.kuznetsov.autotests.models.Passport;
+import ssau.kuznetsov.autotests.repos.CitizenRepo;
+import ssau.kuznetsov.autotests.repos.PassportRepo;
 
 import java.sql.Date;
 import java.util.List;
@@ -19,12 +19,12 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/passport/")
-public class PassportRestcontroller {
+public class PassportController {
 
     @Autowired
-    private PassportRepository passRep;
+    private PassportRepo passRep;
     @Autowired
-    private CitizenRepository citRep;
+    private CitizenRepo citRep;
 
     @GetMapping(path = "all")
     public ResponseEntity allPassports() {

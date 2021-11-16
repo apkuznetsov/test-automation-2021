@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.model;
+package ssau.kuznetsov.autotests.models;
 
 import javax.persistence.*;
 import java.sql.Date;

@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.model;
+package ssau.kuznetsov.autotests.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
