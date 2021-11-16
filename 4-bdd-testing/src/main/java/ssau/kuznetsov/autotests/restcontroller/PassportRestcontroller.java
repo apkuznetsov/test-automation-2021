@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.dtos.PassportResponse;
 import ssau.kuznetsov.autotests.models.Citizen;
 import ssau.kuznetsov.autotests.models.Passport;
-import ssau.kuznetsov.autotests.repository.CitizenRepository;
-import ssau.kuznetsov.autotests.repository.PassportRepository;
+import ssau.kuznetsov.autotests.repos.CitizenRepository;
+import ssau.kuznetsov.autotests.repos.PassportRepository;
 
 import java.sql.Date;
 import java.util.List;

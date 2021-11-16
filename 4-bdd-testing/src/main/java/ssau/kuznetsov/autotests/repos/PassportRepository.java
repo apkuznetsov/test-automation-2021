@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.repository;
+package ssau.kuznetsov.autotests.repos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
