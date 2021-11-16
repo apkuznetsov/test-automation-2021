@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <citizen id='12' surname='Борисов' name='Илья' patronymic='Арсеньевич'
+             birth_date='1945-02-22' birth_fed_place='Республика Алтай' birth_place='Отрадный'/>
+    <citizen id='13' surname='Волков' name='Руслан' patronymic='Макарович'
+             birth_date='1945-03-19' birth_fed_place='Республика Башкортостан — Башкирия' birth_place='Котлас'/>
+    <citizen id='14' surname='Голованова' name='София' patronymic='Марковна'
+             birth_date='1945-05-14' birth_fed_place='Республика Бурятия' birth_place='Краснотурьинск'/>
+    <citizen id='15' surname='Грачева' name='Мария' patronymic='Дмитриевна'
+             birth_date='1949-03-02' birth_fed_place='Республика Дагестан' birth_place='Великие Луки'/>
+    <citizen id='16' surname='Журавлев' name='Константин' patronymic='Романович'
+             birth_date='1950-03-28' birth_fed_place='Республика Ингушетия' birth_place='Глазов'/>
+    <citizen id='17' surname='Иванов' name='Роман' patronymic='Иванович'
+             birth_date='1972-09-21' birth_fed_place='Кабардино-Балкарская республика' birth_place='Невинномысск'/>
+    <citizen id='18' surname='Иванова' name='Юлия' patronymic='Никитична'
+             birth_date='1979-06-17' birth_fed_place='Республика Калмыкия' birth_place='Междуреченск'/>
+    <citizen id='19' surname='Климова' name='Кира' patronymic='Артемьевна'
+             birth_date='2001-01-09' birth_fed_place='Карачаево-Черкесская республика' birth_place='Москва'/>
+    <citizen id='20' surname='Козлова' name='Ева' patronymic='Ивановна'
+             birth_date='1965-11-02' birth_fed_place='Республика Карелия' birth_place='Сергиев Посад'/>
+    <citizen id='21' surname='Кравцова' name='Мария' patronymic='Владимировна'
+             birth_date='1943-07-03' birth_fed_place='Республика Коми' birth_place='Златоуст'/>
+    <citizen id='22' surname='Латышева' name='Варвара' patronymic='Всеволодовна'
+             birth_date='1997-03-08' birth_fed_place='Республика Крым' birth_place='Новороссийск'/>
+    <citizen id='23' surname='Лукьянов' name='Кирилл' patronymic='Ильич'
+             birth_date='2004-07-26' birth_fed_place='Республика Марий Эл' birth_place='Пенза'/>
+    <citizen id='24' surname='Любимов' name='Фёдор' patronymic='Алексеевич'
+             birth_date='1952-05-11' birth_fed_place='Республика Мордовия' birth_place='Геленджик'/>
+    <citizen id='25' surname='Медведева' name='Валерия' patronymic='Артёмовна'
+             birth_date='1999-03-31' birth_fed_place='Республика Саха (Якутия)' birth_place='Ишим'/>
+    <citizen id='26' surname='Морозов' name='Артём' patronymic='Тимофеевич'
+             birth_date='1957-10-08' birth_fed_place='Республика Северная Осетия — Алания'
+             birth_place='Гусь-Хрустальный'/>
+    <citizen id='27' surname='Морозова' name='Ксения' patronymic='Владиславовна'
+             birth_date='1961-09-02' birth_fed_place='Республика Татарстан — Татария' birth_place='Троицк'/>
+    <citizen id='28' surname='Морозова' name='Злата' patronymic='Тимуровна'
+             birth_date='1983-01-13' birth_fed_place='Республика Тыва' birth_place='Волгоград'/>
+    <citizen id='29' surname='Овсянников' name='Роман' patronymic='Дмитриевич'
+             birth_date='1972-08-26' birth_fed_place='Удмуртская республика — Удмуртия' birth_place='Новый Уренгой'/>
+    <citizen id='30' surname='Петров' name='Руслан' patronymic='Тимофеевич'
+             birth_date='1991-06-22' birth_fed_place='Республика Хакасия' birth_place='Гуково'/>
+    <citizen id='31' surname='Попов' name='Никита' patronymic='Адамович'
+             birth_date='1957-01-27' birth_fed_place='Чеченская республика — Чечня' birth_place='Гатчина'/>
+    <citizen id='32' surname='Попов' name='Тимофей' patronymic='Миронович'
+             birth_date='1955-11-11' birth_fed_place='Чувашская республика' birth_place='Тулун'/>
+    <citizen id='33' surname='Родионов' name='Мирон' patronymic='Святославович'
+             birth_date='1997-05-02' birth_fed_place='Алтайский край' birth_place='Киров'/>
+    <citizen id='34' surname='Романов' name='Лев' patronymic='Романович'
+             birth_date='1995-07-29' birth_fed_place='Забайкальский край' birth_place='Белебей'/>
+    <citizen id='35' surname='Смирнова' name='Виктория' patronymic='Святославовна'
+             birth_date='1941-05-18' birth_fed_place='Камчатский край' birth_place='Жигулёвск'/>
+    <citizen id='36' surname='Старикова' name='Мария' patronymic='Дмитриевна'
+             birth_date='2004-07-17' birth_fed_place='Краснодарский край' birth_place='Астрахань'/>
+    <citizen id='37' surname='Титов' name='Константин' patronymic='Викторович'
+             birth_date='2002-05-02' birth_fed_place='Красноярский край' birth_place='Будённовск'/>
+    <citizen id='38' surname='Ульянова' name='Вероника' patronymic='Анатольевна'
+             birth_date='1987-08-14' birth_fed_place='Пермский край' birth_place='Якутск'/>
+    <citizen id='39' surname='Щербакова' name='Анна' patronymic='Максимовна'
+             birth_date='1947-08-13' birth_fed_place='Приморский край' birth_place='Ханты-Мансийск'/>
+    <citizen id='40' surname='Яковлева' name='София' patronymic='Михайловна'
+             birth_date='2002-01-13' birth_fed_place='Ставропольский край' birth_place='Будённовск'/>
+</dataset>
