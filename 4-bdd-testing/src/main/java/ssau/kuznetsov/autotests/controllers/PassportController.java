@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/passport/")
-public class PassportRestcontroller {
+public class PassportController {
 
     @Autowired
     private PassportRepo passRep;
