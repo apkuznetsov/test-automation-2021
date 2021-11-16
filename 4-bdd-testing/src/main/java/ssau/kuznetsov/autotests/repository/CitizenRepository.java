@@ -2,8 +2,7 @@ package ssau.kuznetsov.autotests.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ssau.kuznetsov.autotests.model.Citizen;
-import ssau.kuznetsov.autotests.model.Passport;
+import ssau.kuznetsov.autotests.models.Citizen;
 
 import java.sql.Date;
 import java.util.List;

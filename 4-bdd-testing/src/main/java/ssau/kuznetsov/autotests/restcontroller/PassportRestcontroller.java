@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.dtos.PassportResponse;
-import ssau.kuznetsov.autotests.model.Citizen;
-import ssau.kuznetsov.autotests.model.Passport;
+import ssau.kuznetsov.autotests.models.Citizen;
+import ssau.kuznetsov.autotests.models.Passport;
 import ssau.kuznetsov.autotests.repository.CitizenRepository;
 import ssau.kuznetsov.autotests.repository.PassportRepository;
 
