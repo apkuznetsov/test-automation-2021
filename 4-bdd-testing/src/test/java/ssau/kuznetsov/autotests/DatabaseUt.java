@@ -14,7 +14,7 @@ import org.springframework.http.HttpMethod;
 
 import java.io.FileInputStream;
 
-public class DatabaseUt extends PostgresqlContainer {
+public class DatabaseUt extends PostgresConfig {
 
     @Test
     @FlywayTest

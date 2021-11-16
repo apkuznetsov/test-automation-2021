@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PassportRestcontrollerIt extends PostgresqlContainer {
+public class PassportRestcontrollerIt extends PostgresConfig {
 
     private static final String apiUrl = "/api/passport/";
     private static final long expectedSerialNumber = 1678756113;
