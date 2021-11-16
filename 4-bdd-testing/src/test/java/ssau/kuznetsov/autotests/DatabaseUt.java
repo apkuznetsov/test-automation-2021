@@ -14,7 +14,7 @@ import org.springframework.http.HttpMethod;
 
 import java.io.FileInputStream;
 
-public class DbUt extends PostgresqlContainer {
+public class DatabaseUt extends PostgresqlContainer {
 
     @Test
     @FlywayTest
@@ -33,7 +33,7 @@ public class DbUt extends PostgresqlContainer {
     @FlywayTest
     public void is_passport_table_there() throws Exception {
         ITable xml = new SortedTable(
-                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-passport.xml"))
+                new FlatXmlDataSetBuilder().build(new FileInputStream("passport.xml"))
                         .getTable("passport"));
         ITable db = new SortedTable(
                 tester.getConnection().createDataSet()
@@ -46,7 +46,7 @@ public class DbUt extends PostgresqlContainer {
     @FlywayTest
     public void is_foreign_passport_table_there() throws Exception {
         ITable xml = new SortedTable(
-                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-foreign-passport.xml"))
+                new FlatXmlDataSetBuilder().build(new FileInputStream("foreign-passport.xml"))
                         .getTable("foreign_passport"));
         ITable db = new SortedTable(
                 tester.getConnection().createDataSet()
@@ -67,17 +67,17 @@ public class DbUt extends PostgresqlContainer {
         IDataSet db = tester.getConnection().createDataSet();
 
         ITable xml_citizen = new SortedTable(new FlatXmlDataSetBuilder().build(
-                        new FileInputStream("dataset-citizen-deleted-citizen-11.xml"))
+                        new FileInputStream("citizen-deleted-citizen-11.xml"))
                 .getTable("citizen"));
         ITable db_citizen = new SortedTable(db.getTable("citizen"));
 
         ITable xml_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
-                        new FileInputStream("dataset-passport-deleted-citizen-11.xml"))
+                        new FileInputStream("passport-deleted-citizen-11.xml"))
                 .getTable("passport"));
         ITable db_passports = new SortedTable(db.getTable("passport"));
 
         ITable xml_foreign_passports = new SortedTable(new FlatXmlDataSetBuilder().build(
-                        new FileInputStream("dataset-foreign-passport-deleted-citizen-11.xml"))
+                        new FileInputStream("foreign-passport-deleted-citizen-11.xml"))
                 .getTable("foreign_passport"));
         ITable db_foreign_passports = new SortedTable(db.getTable("foreign_passport"));
 
@@ -92,7 +92,7 @@ public class DbUt extends PostgresqlContainer {
         passRep.callCreateValidPassportView();
 
         ITable xml = new SortedTable(
-                new FlatXmlDataSetBuilder().build(new FileInputStream("dataset-valid-passport-view.xml"))
+                new FlatXmlDataSetBuilder().build(new FileInputStream("valid-passport-view.xml"))
                         .getTable("valid_passport_view"));
         ITable db = new SortedTable(
                 tester.getConnection()
