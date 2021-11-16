@@ -10,7 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import ssau.kuznetsov.autotests.App;
 
 // class to use Spring app context while running Cucumber
-@SpringBootTest(webEnvironment = WebEnvironment.DEFINED_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ContextConfiguration(classes = App.class, loader = SpringBootContextLoader.class)
 public class CucumberConfig {
 
