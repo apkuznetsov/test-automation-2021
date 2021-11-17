@@ -1,9 +1,14 @@
 package ssau.kuznetsov.autotests.helpers;
 
-import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.context.annotation.Scope;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import ssau.kuznetsov.autotests.dtos.PassportResponse;
 
 import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 
@@ -11,17 +16,26 @@ import static io.cucumber.spring.CucumberTestContext.SCOPE_CUCUMBER_GLUE;
 @Scope(SCOPE_CUCUMBER_GLUE)
 public class PassportHttpClient {
 
-    private final String SERVER_URL = "http://localhost";
-    private final String PASSPORT_ENDPOINT = "/api/passport";
-    private final RestTemplate restTemplate = new RestTemplate();
-    @LocalServerPort
-    private int port;
+    private static final RestTemplate restTemplate = new RestTemplate();
 
-    private String thingsEndpoint() {
-        return SERVER_URL + ":" + port + PASSPORT_ENDPOINT;
+    private static final int port = 8080;
+
+    private static ResponseEntity<PassportResponse> response;
+
+    private static String endpoint() {
+        return "http://localhost:" + port + "/api/passport/";
     }
 
-    public int put(final String something) {
-        return restTemplate.postForEntity(thingsEndpoint(), something, Void.class).getStatusCodeValue();
+    public static ResponseEntity<PassportResponse> latestResponse() {
+        return response;
+    }
+
+    public static void get(long serialNumber) {
+        response = restTemplate.exchange(
+                endpoint() + serialNumber,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
     }
 }
