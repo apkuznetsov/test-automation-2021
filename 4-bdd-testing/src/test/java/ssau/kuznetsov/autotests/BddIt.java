@@ -8,7 +8,7 @@ import ssau.kuznetsov.autotests.helpers.PassportHttpClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CucumberIt {
+public class BddIt {
 
     @When("^клиент посылает запрос GET /api/passport/ (\\d+)$")
     public void client_gets_passport_by_serial_number(long serialNumber) {
