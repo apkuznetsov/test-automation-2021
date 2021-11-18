@@ -20,19 +20,19 @@ public class BddIt {
         admin.truncatePassport();
     }
 
-    @When("^клиент посылает запрос GET /api/passport/ (\\d+)$")
-    public void client_gets_passport_by_serial_number(long serialNumber) {
+    @When("^пользователь посылает запрос GET /api/passport/ (\\d+)$")
+    public void user_gets_passport_by_serial_number(long serialNumber) {
         user.get(serialNumber);
     }
 
     @Then("^получает код состояния (\\d+)$")
-    public void client_receives_status_code_of(int expectedStatusCode) {
+    public void user_receives_status_code_of(int expectedStatusCode) {
         HttpStatus actualStatusCode = user.latestResponse().getStatusCode();
         assertEquals(HttpStatus.OK, actualStatusCode);
     }
 
     @Then("^получает паспорт с серийным номером (\\d+)$")
-    public void the_client_receives_status_code_of(long expectedSerialNumber) {
+    public void user_receives_status_code_of(long expectedSerialNumber) {
         PassportResponse result = user.latestResponse().getBody();
         assertEquals(expectedSerialNumber, result.getSerialNumber());
     }
