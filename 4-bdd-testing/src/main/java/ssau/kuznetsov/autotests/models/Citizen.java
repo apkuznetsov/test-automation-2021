@@ -33,9 +33,8 @@ public class Citizen {
     public Citizen() {
     }
 
-    public Citizen(long id, String surname, String name, String patronymic,
+    public Citizen(String surname, String name, String patronymic,
                    String birthDate, String birthFedPlace, String birthPlace) {
-        this.id = id;
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -43,6 +42,12 @@ public class Citizen {
         this.birthFedPlace = birthFedPlace;
         this.birthPlace = birthPlace;
         this.passports = new ArrayList<>();
+    }
+
+    public Citizen(long id, String surname, String name, String patronymic,
+                   String birthDate, String birthFedPlace, String birthPlace) {
+        this(surname, name, patronymic, birthDate, birthFedPlace, birthPlace);
+        this.id = id;
     }
 
     public List<Passport> getPassports() {
