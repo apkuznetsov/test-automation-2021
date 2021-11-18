@@ -18,6 +18,7 @@ public class BddIt {
     @Before
     public void resetDatabase() {
         admin.truncatePassport();
+        admin.truncateCitizen();
     }
 
     @When("^пользователь посылает запрос GET /api/passport/ (\\d+)$")

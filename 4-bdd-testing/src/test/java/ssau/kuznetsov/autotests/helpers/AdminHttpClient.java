@@ -26,4 +26,13 @@ public class AdminHttpClient {
                 new ParameterizedTypeReference<>() {
                 });
     }
+
+    public void truncateCitizen() {
+        REST.exchange(
+                URL + ADMIN_TRUNCATE_CITIZEN,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
+    }
 }
