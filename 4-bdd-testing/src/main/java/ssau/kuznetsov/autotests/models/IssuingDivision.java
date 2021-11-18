@@ -3,6 +3,7 @@ package ssau.kuznetsov.autotests.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "issuing_division")
@@ -28,6 +29,7 @@ public class IssuingDivision {
     public IssuingDivision(long code, String name) {
         this.code = code;
         this.name = name;
+        this.passports = new ArrayList<>();
     }
 
     public List<Passport> getPassports() {

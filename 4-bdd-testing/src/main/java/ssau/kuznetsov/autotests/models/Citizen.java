@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "citizen")
@@ -41,6 +42,7 @@ public class Citizen {
         this.birthDate = Date.valueOf(birthDate);
         this.birthFedPlace = birthFedPlace;
         this.birthPlace = birthPlace;
+        this.passports = new ArrayList<>();
     }
 
     public List<Passport> getPassports() {
