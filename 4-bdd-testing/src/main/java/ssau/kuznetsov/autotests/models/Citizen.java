@@ -30,6 +30,20 @@ public class Citizen {
     @JsonIgnore
     private List<Passport> passports;
 
+    public Citizen() {
+    }
+
+    public Citizen(long id, String surname, String name, String patronymic,
+                   String birthDate, String birthFedPlace, String birthPlace) {
+        this.id = id;
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.birthDate = Date.valueOf(birthDate);
+        this.birthFedPlace = birthFedPlace;
+        this.birthPlace = birthPlace;
+    }
+
     public List<Passport> getPassports() {
         return passports;
     }
