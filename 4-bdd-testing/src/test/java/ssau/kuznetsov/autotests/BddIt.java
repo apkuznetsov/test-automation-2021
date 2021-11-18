@@ -1,6 +1,7 @@
 package ssau.kuznetsov.autotests;
 
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,11 @@ public class BddIt {
     @Before
     public void resetDatabase() {
         admin.truncateDatabase();
+    }
+
+    @Given("^в базе данных есть паспорт с серийным номером (\\d+)$")
+    public void there_is_passport_with_such_serial_number(long serialNumber) {
+        admin.createTestPassportWithSuchSerialNumber(serialNumber);
     }
 
     @When("^пользователь посылает запрос GET /api/passport/ (\\d+)$")
