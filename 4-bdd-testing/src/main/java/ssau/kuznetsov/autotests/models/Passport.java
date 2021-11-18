@@ -33,7 +33,7 @@ public class Passport {
     public Passport(long serialNumber, String issueDate, String validityDate) {
         this.serialNumber = serialNumber;
         this.issueDate = Date.valueOf(issueDate);
-        this.validityDate = Date.valueOf(issueDate);
+        this.validityDate = Date.valueOf(validityDate);
     }
 
     public Long getSerialNumber() {
