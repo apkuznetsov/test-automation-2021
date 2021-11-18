@@ -7,7 +7,6 @@ import java.sql.Date;
 @Entity
 public class Passport {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_number", nullable = false)
     private Long serialNumber;
     @Column(name = "issue_date", nullable = false)
@@ -34,7 +33,7 @@ public class Passport {
     public Passport(long serialNumber, String issueDate, String validityDate) {
         this.serialNumber = serialNumber;
         this.issueDate = Date.valueOf(issueDate);
-        this.validityDate = Date.valueOf(issueDate);
+        this.validityDate = Date.valueOf(validityDate);
     }
 
     public Long getSerialNumber() {

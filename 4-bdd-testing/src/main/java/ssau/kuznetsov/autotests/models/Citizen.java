@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "citizen")
 @Entity
 public class Citizen {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "surname", nullable = false)
@@ -29,6 +29,26 @@ public class Citizen {
     @OneToMany(mappedBy = "citizen", cascade = CascadeType.REMOVE)
     @JsonIgnore
     private List<Passport> passports;
+
+    public Citizen() {
+    }
+
+    public Citizen(String surname, String name, String patronymic,
+                   String birthDate, String birthFedPlace, String birthPlace) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.birthDate = Date.valueOf(birthDate);
+        this.birthFedPlace = birthFedPlace;
+        this.birthPlace = birthPlace;
+        this.passports = new ArrayList<>();
+    }
+
+    public Citizen(long id, String surname, String name, String patronymic,
+                   String birthDate, String birthFedPlace, String birthPlace) {
+        this(surname, name, patronymic, birthDate, birthFedPlace, birthPlace);
+        this.id = id;
+    }
 
     public List<Passport> getPassports() {
         return passports;
