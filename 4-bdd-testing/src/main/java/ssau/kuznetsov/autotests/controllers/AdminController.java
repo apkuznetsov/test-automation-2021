@@ -25,4 +25,10 @@ public class AdminController {
     public void truncateCitizen() {
         citRep.deleteAll();
     }
+
+    @GetMapping("truncate/database")
+    public void truncateDatabase() {
+        passRep.deleteAll();
+        citRep.deleteAll();
+    }
 }

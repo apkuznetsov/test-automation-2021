@@ -35,4 +35,13 @@ public class AdminHttpClient {
                 new ParameterizedTypeReference<>() {
                 });
     }
+
+    public void truncateDatabase() {
+        REST.exchange(
+                URL + ADMIN_TRUNCATE_DATABASE,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
+    }
 }
