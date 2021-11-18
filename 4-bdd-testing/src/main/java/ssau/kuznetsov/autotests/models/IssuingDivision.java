@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class IssuingDivision {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "code", nullable = false)
     private Long code;
     @Column(name = "name")

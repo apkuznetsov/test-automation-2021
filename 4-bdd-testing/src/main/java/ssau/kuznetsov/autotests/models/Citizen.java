@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 public class Citizen {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "surname", nullable = false)

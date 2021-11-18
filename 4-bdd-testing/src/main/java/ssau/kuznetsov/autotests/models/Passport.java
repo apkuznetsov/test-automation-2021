@@ -7,7 +7,6 @@ import java.sql.Date;
 @Entity
 public class Passport {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_number", nullable = false)
     private Long serialNumber;
     @Column(name = "issue_date", nullable = false)
