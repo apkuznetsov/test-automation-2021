@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ssau.kuznetsov.autotests.repos.CitizenRepo;
+import ssau.kuznetsov.autotests.repos.IssuingDivisionRepo;
 import ssau.kuznetsov.autotests.repos.PassportRepo;
 
 @RestController
@@ -13,6 +14,8 @@ public class AdminController {
 
     @Autowired
     private PassportRepo passRep;
+    @Autowired
+    private IssuingDivisionRepo divRep;
     @Autowired
     private CitizenRepo citRep;
 
@@ -29,6 +32,7 @@ public class AdminController {
     @GetMapping("truncate/database")
     public void truncateDatabase() {
         passRep.deleteAll();
+        divRep.deleteAll();
         citRep.deleteAll();
     }
 }
