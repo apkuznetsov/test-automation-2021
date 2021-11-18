@@ -2,8 +2,12 @@ package ssau.kuznetsov.autotests.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ssau.kuznetsov.autotests.models.Citizen;
+import ssau.kuznetsov.autotests.models.IssuingDivision;
+import ssau.kuznetsov.autotests.models.Passport;
 import ssau.kuznetsov.autotests.repos.CitizenRepo;
 import ssau.kuznetsov.autotests.repos.IssuingDivisionRepo;
 import ssau.kuznetsov.autotests.repos.PassportRepo;
@@ -34,5 +38,20 @@ public class AdminController {
         passRep.deleteAll();
         divRep.deleteAll();
         citRep.deleteAll();
+    }
+
+    @GetMapping("create/passport/{serialNumber}")
+    public void createTestPassportWithSuchSerialNumber(@PathVariable long serialNumber) {
+        Citizen cit = new Citizen(26L, "Морозов", "Артём", "Тимофеевич",
+                "1957-10-08", "Республика Северная Осетия — Алания", "Гусь-Хрустальный");
+        IssuingDivision div = new IssuingDivision(100001L,
+                "Отдел по вопросам миграции ОП №4 (Октябрьский район) УМВД России по г. Самаре");
+        Passport pass = new Passport(1678756113L, "2012-05-17", "2031-09-10");
+        pass.setCitizen(cit);
+        pass.setPassportIssuingDivision(div);
+
+        citRep.save(cit);
+        divRep.save(div);
+        passRep.save(pass);
     }
 }

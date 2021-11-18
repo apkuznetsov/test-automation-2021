@@ -9,4 +9,5 @@ public class HttpClientConfig {
     public static final String ADMIN_TRUNCATE_PASSPORT = "/admin/truncate/passport";
     public static final String ADMIN_TRUNCATE_CITIZEN = "/admin/truncate/citizen";
     public static final String ADMIN_TRUNCATE_DATABASE = "/admin/truncate/database";
+    public static final String ADMIN_CREATE_PASSPORT = "/admin/create/passport";
 }

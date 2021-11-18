@@ -44,4 +44,13 @@ public class AdminHttpClient {
                 new ParameterizedTypeReference<>() {
                 });
     }
+
+    public void createTestPassportWithSuchSerialNumber(long serialNumber) {
+        REST.exchange(
+                URL + ADMIN_CREATE_PASSPORT + "/" + serialNumber,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
+    }
 }
