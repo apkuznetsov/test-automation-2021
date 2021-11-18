@@ -23,6 +23,14 @@ public class IssuingDivision {
     @JsonIgnore
     private List<ForeignPassport> foreignPassports;
 
+    public IssuingDivision() {
+    }
+
+    public IssuingDivision(long code, String name) {
+        this.code = code;
+        this.name = name;
+    }
+
     public List<Passport> getPassports() {
         return passports;
     }
