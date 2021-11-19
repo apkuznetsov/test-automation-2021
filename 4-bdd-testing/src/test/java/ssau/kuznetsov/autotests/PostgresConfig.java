@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.configs;
+package ssau.kuznetsov.autotests;
 
 import org.dbunit.IDatabaseTester;
 import org.dbunit.JdbcDatabaseTester;

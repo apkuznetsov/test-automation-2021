@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.helpers;
+package ssau.kuznetsov.autotests.Bdd.helpers;
 
 public class HttpClientConfig {
 

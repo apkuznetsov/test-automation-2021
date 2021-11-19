@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.helpers;
+package ssau.kuznetsov.autotests.Bdd.helpers;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
-import static ssau.kuznetsov.autotests.helpers.HttpClientConfig.*;
+import static ssau.kuznetsov.autotests.Bdd.helpers.HttpClientConfig.*;
 
 public class AdminHttpClient {
 
