@@ -14,14 +14,14 @@ public class UserHttpClient {
 
     private final String URL;
     private final RestTemplate REST;
-    private ResponseEntity<PassportResponse> latestResponse;
+    private ResponseEntity latestResponse;
 
     public UserHttpClient() {
         URL = HOST + PORT;
         REST = new RestTemplate();
     }
 
-    public ResponseEntity<PassportResponse> latestResponse() {
+    public ResponseEntity latestResponse() {
         return latestResponse;
     }
 
