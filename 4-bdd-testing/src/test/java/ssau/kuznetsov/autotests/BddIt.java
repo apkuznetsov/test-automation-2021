@@ -36,7 +36,7 @@ public class BddIt {
 
     @When("^пользователь посылает запрос GET /api/passport/ (\\d+)$")
     public void user_gets_passport_by_serial_number(long serialNumber) {
-        user.get(serialNumber);
+        user.getPassportBySerialNumber(serialNumber);
     }
 
     @When("^пользователь посылает запрос GET /api/passport/surname/ (.+) /name/ (.+)$")

@@ -25,7 +25,7 @@ public class UserHttpClient {
         return latestResponse;
     }
 
-    public void get(long serialNumber) {
+    public void getPassportBySerialNumber(long serialNumber) {
         latestResponse = REST.exchange(
                 URL + CLIENT_API_PASSPORT + serialNumber,
                 HttpMethod.GET,
