@@ -45,13 +45,13 @@ public class BddIt {
     }
 
     @Then("^получает код состояния (\\d+)$")
-    public void user_receives_status_code_of(int expectedStatusCode) {
-        HttpStatus actualStatusCode = user.latestResponse().getStatusCode();
-        assertEquals(HttpStatus.OK, actualStatusCode);
+    public void user_got_status_code_of(int expectedStatusCode) {
+        int actualStatusCode = user.latestResponse().getStatusCode().value();
+        assertEquals(expectedStatusCode, actualStatusCode);
     }
 
     @Then("^получает паспорт с серийным номером (\\d+)$")
-    public void user_receives_status_code_of(long expectedSerialNumber) {
+    public void user_got_status_code_of(long expectedSerialNumber) {
         LinkedHashMap passportResponse = (LinkedHashMap) user.latestResponse().getBody();
         System.out.println(passportResponse);
 
@@ -59,7 +59,7 @@ public class BddIt {
     }
 
     @Then("^получает список паспортов с фамилией и именем (.+) (.+)$")
-    public void user_receives_passport_with_such_surname_and_name(String expectedSurname, String expectedName) {
+    public void user_got_passport_with_such_surname_and_name(String expectedSurname, String expectedName) {
         ArrayList<LinkedHashMap> passportResponseList = (ArrayList<LinkedHashMap>) user.latestResponse().getBody();
         System.out.println(passportResponseList);
 
