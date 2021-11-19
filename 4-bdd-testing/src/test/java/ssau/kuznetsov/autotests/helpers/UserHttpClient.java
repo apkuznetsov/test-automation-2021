@@ -33,4 +33,13 @@ public class UserHttpClient {
                 new ParameterizedTypeReference<>() {
                 });
     }
+
+    public void getPassportsBySurnameAndName(String surname, String name) {
+        latestResponse = REST.exchange(
+                URL + CLIENT_API_PASSPORT + "/surname/" + surname + "/name/" + name,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
+    }
 }
