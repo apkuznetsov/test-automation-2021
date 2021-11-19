@@ -53,4 +53,13 @@ public class AdminHttpClient {
                 new ParameterizedTypeReference<>() {
                 });
     }
+
+    public void createTestPassportsWithSuchSurnameAndName(String surname, String name) {
+        REST.exchange(
+                URL + ADMIN_CREATE_PASSPORT + "/surname/" + surname + "/name/" + name,
+                HttpMethod.GET,
+                new HttpEntity<>(null, new HttpHeaders()),
+                new ParameterizedTypeReference<>() {
+                });
+    }
 }
