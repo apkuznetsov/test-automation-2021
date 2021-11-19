@@ -39,7 +39,9 @@ public class BddIt {
 
     @Then("^получает паспорт с серийным номером (\\d+)$")
     public void user_receives_status_code_of(long expectedSerialNumber) {
-        PassportResponse result = user.latestResponse().getBody();
-        assertEquals(expectedSerialNumber, result.getSerialNumber());
+        LinkedHashMap passportResponse = (LinkedHashMap) user.latestResponse().getBody();
+        System.out.println(passportResponse);
+
+        assertEquals(expectedSerialNumber, passportResponse.get("Серия и номер"));
     }
 }
