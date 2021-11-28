@@ -20,18 +20,27 @@ export class AppComponent {
     "Умножить"
   ];
   selectedValue = (this.operations)[0];
-    this.num3 = this.num1 + this.num2;
-  }
 
-  sub() {
-    this.num3 = this.num1 - this.num2;
-  }
+  calc() {
+    this.num2 = Number(this.num2);
 
-  mult() {
-    this.num3 = this.num1 * this.num2;
-  }
-
-  div() {
-    this.num3 = this.num1 / this.num2;
+    switch (this.selectedValue) {
+      case (this.operations)[0]: {
+        this.num3 = this.num1 + this.num2;
+        break;
+      }
+      case (this.operations)[1]: {
+        this.num3 = this.num1 - this.num2;
+        break;
+      }
+      case (this.operations)[2]: {
+        this.num3 = this.num1 / this.num2;
+        break;
+      }
+      case (this.operations)[3]: {
+        this.num3 = this.num1 * this.num2;
+        break;
+      }
+    }
   }
 }
