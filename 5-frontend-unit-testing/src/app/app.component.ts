@@ -8,14 +8,18 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title: any = 'Калькулятор';
 
-  // @ts-ignore
-  public num1: number;
-  // @ts-ignore
-  public num2: number;
+  public num1: number = 1;
+  public num2: number = 1;
   // @ts-ignore
   public num3: number;
 
-  add() {
+  operations = [
+    "Сложить",
+    "Вычесть",
+    "Поделить",
+    "Умножить"
+  ];
+  selectedValue = (this.operations)[0];
     this.num3 = this.num1 + this.num2;
   }
 
