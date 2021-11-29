@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title: string = 'Калькулятор';
 
-  num3: number = 0;
+  num3: number = 2;
 
   operations = [
     "Сложить",

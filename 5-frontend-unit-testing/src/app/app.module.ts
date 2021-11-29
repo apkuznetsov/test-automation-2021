@@ -5,10 +5,11 @@ import {AppComponent} from './app.component';
 import {routing} from './app.route';
 import {FormsModule} from "@angular/forms";
 import {InputsComponent} from "./inputs.component";
+import {RedblackgreenDirective} from './redblackgreen.directive';
 
 @NgModule({
   declarations: [
-    AppComponent, InputsComponent
+    AppComponent, InputsComponent, RedblackgreenDirective
   ],
   imports: [
     BrowserModule,
