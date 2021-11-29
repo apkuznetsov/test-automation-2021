@@ -6,12 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title: any = 'Калькулятор';
+  title: string = 'Калькулятор';
 
-  public num1: number = 1;
-  public num2: number = 1;
-  // @ts-ignore
-  public num3: number;
+  num3: number = 0;
 
   operations = [
     "Сложить",
@@ -19,26 +16,23 @@ export class AppComponent {
     "Поделить",
     "Умножить"
   ];
-  selectedValue = (this.operations)[0];
 
-  calc() {
-    this.num2 = Number(this.num2);
-
-    switch (this.selectedValue) {
+  calc(calcData: CalcData) {
+    switch (calcData.selectedValue) {
       case (this.operations)[0]: {
-        this.num3 = this.num1 + this.num2;
+        this.num3 = calcData.num1 + calcData.num2;
         break;
       }
       case (this.operations)[1]: {
-        this.num3 = this.num1 - this.num2;
+        this.num3 = calcData.num1 - calcData.num2;
         break;
       }
       case (this.operations)[2]: {
-        this.num3 = this.num1 / this.num2;
+        this.num3 = calcData.num1 / calcData.num2;
         break;
       }
       case (this.operations)[3]: {
-        this.num3 = this.num1 * this.num2;
+        this.num3 = calcData.num1 * calcData.num2;
         break;
       }
     }
