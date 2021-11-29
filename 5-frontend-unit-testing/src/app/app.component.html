@@ -3,25 +3,7 @@
     {{ title }}
   </h1>
 
-  <label>Первое число </label>
-  <input [(ngModel)]="num1" name="num1" type="number">
-  <br>
-  <br>
-
-  <select [(ngModel)]="selectedValue">
-    <option *ngFor="let o of operations" [ngValue]="o">{{o}}</option>
-  </select>
-  <br>
-  <br>
-
-  <label>Второе число </label>
-  <input [(ngModel)]="num2" name="num2" oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';" pattern="^[1-9][0-9]*$" required
-         type="text"/>
-  <br>
-  <br>
-
-  <button (click)="calc()">Расчитать</button>
-  <br>
-
+  <inputs (calcDataEvent)="calc($event)"></inputs>
   <h3>= {{num3}}</h3>
+
 </div>
