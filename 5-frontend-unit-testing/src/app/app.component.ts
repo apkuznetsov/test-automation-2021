@@ -44,3 +44,9 @@ export class AppComponent {
     }
   }
 }
+
+export interface CalcData {
+  num1: number;
+  num2: number;
+  selectedValue: string;
+}
