@@ -1,12 +1,11 @@
-package ssau.kuznetsov.autotests;
+package ssau.kuznetsov.autotests.Bdd;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.springframework.http.HttpStatus;
-import ssau.kuznetsov.autotests.helpers.AdminHttpClient;
-import ssau.kuznetsov.autotests.helpers.UserHttpClient;
+import ssau.kuznetsov.autotests.Bdd.helpers.AdminHttpClient;
+import ssau.kuznetsov.autotests.Bdd.helpers.UserHttpClient;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,7 +13,7 @@ import java.util.LinkedHashMap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BddIt {
+public class BddSteps {
 
     private final AdminHttpClient admin = new AdminHttpClient();
     private final UserHttpClient user = new UserHttpClient();

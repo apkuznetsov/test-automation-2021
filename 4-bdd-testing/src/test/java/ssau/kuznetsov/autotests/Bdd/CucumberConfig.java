@@ -1,4 +1,4 @@
-package ssau.kuznetsov.autotests.configs;
+package ssau.kuznetsov.autotests.Bdd;
 
 import io.cucumber.java.Before;
 import io.cucumber.spring.CucumberContextConfiguration;
