@@ -1,18 +1,27 @@
-import {Directive, ElementRef, HostListener} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges, SimpleChanges} from '@angular/core';
 
 @Directive({
-  selector: '[appRedblackgreen]'
+  selector: '[redblackgreen]'
 })
-export class RedblackgreenDirective {
+export class RedblackgreenDirective implements OnChanges {
+  // @ts-ignore
+  @Input() public redblackgreen: any;
+  @Input() public input: any;
+
   constructor(private el: ElementRef) {
+    this.highlight('red');
   }
 
-  @HostListener('mouseenter') onMouseEnter() {
-    this.highlight('yellow');
-  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (this.input < 0) {
+      this.highlight('red');
+    } else if (this.input == 0) {
+      this.highlight('black');
+    } else if (this.input > 0) {
+      this.highlight('green');
+    }
 
-  @HostListener('mouseleave') onMouseLeave() {
-    this.highlight('');
+    this.el.nativeElement.value = this.input;
   }
 
   private highlight(color: string) {
