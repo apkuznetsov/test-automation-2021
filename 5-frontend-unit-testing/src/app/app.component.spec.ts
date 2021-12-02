@@ -1,11 +1,15 @@
 import {TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
+import {InputsComponent} from "./inputs.component";
+import {RedblackgreenDirective} from "./redblackgreen.directive";
+import {RoundingPipe} from "./rounding.pipe";
 
 describe('AppComponent', () => {
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent, InputsComponent, RedblackgreenDirective, RoundingPipe
       ],
     }).compileComponents();
   });
@@ -16,16 +20,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lab5'`, () => {
+  it(`should have as title 'Калькулятор'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('lab5');
+    expect(app.title).toEqual('Калькулятор');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('lab5 app is running!');
-  });
 });
