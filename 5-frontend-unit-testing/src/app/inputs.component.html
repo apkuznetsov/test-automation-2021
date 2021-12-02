@@ -3,14 +3,17 @@
 <br>
 <br>
 
-<select [(ngModel)]="inputSelectedValue">
+<select [(ngModel)]="inputSelectedValue" id="operationSelector">
   <option *ngFor="let o of operations" [ngValue]="o">{{o}}</option>
 </select>
 <br>
 <br>
 
 <label>Второе число </label>
-<input [(ngModel)]="inputNum2" name="inputNum2" oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';"
+<input [(ngModel)]="inputNum2" name="inputNum2" oninput='var e = document.getElementById("operationSelector");var text = e.options[e.selectedIndex].text;
+if (text.localeCompare("Поделить") === 0)
+if(!this.value.match("^[1-9][0-9]*$"))
+this.value="";'
        pattern="^[1-9][0-9]*$" required
        type="text"/>
 <br>
