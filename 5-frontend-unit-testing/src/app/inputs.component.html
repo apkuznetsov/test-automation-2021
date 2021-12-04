@@ -1,5 +1,5 @@
 <label>Первое число </label>
-<input [(ngModel)]="inputNum1" name="inputNum1" type="number">
+<input [(ngModel)]="inputNum1" id="input1" name="inputNum1" type="number">
 <br>
 <br>
 
@@ -10,14 +10,21 @@
 <br>
 
 <label>Второе число </label>
-<input [(ngModel)]="inputNum2" name="inputNum2" oninput='var e = document.getElementById("operationSelector");var text = e.options[e.selectedIndex].text;
+<input [(ngModel)]="inputNum2" id="input2" name="inputNum2" oninput='var e = document.getElementById("operationSelector");
+var text = e.options[e.selectedIndex].text;
 if (text.localeCompare("Поделить") === 0)
-if(!this.value.match("^[1-9][0-9]*$"))
-this.value="";'
+{
+  if(!this.value.match("^[1-9][0-9]*$"))
+    this.value="";
+}
+else {
+  if(!this.value.match("^[0-9]*$"))
+    this.value="";
+}'
        pattern="^[1-9][0-9]*$" required
        type="text"/>
 <br>
 <br>
 
-<button (click)="emitCalcData()">Расчитать</button>
+<button (click)="emitCalcData()" id="calcButton">Расчитать</button>
 <br>
