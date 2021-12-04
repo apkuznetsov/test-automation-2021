@@ -76,4 +76,9 @@ describe('InputsComponent', () => {
     expect(input2.nativeElement.value).toBe('');
   });
 
+  it('имеется кнопка выполнения расчёта', () => {
+    const calcButton = inpFixt.debugElement.query(By.css('#calcButton'));
+    expect(calcButton).toBeTruthy();
+  });
+
 });

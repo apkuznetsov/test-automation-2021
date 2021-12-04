@@ -72,4 +72,8 @@ describe('AppComponent', () => {
     expect(appComp.num3).toBe(37);
   });
 
+  it('имеется вывод расчёта', () => {
+    const input3 = appFixt.debugElement.query(By.css('#input3'));
+    expect(input3).toBeTruthy();
+  });
 });
