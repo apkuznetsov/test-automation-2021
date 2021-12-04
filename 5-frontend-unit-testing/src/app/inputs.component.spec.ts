@@ -7,8 +7,8 @@ import {By} from "@angular/platform-browser";
 
 describe('InputsComponent', () => {
 
-  let component: InputsComponent;
-  let fixture: ComponentFixture<InputsComponent>;
+  let inpFixt: ComponentFixture<InputsComponent>;
+  let inpComp: InputsComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -19,59 +19,59 @@ describe('InputsComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    inpFixt = TestBed.createComponent(InputsComponent);
+    inpComp = inpFixt.componentInstance;
+    inpFixt.detectChanges();
   });
 
   it('ввод букв в input 1', () => {
-    const input1 = fixture.debugElement.query(By.css('#input1'));
+    const input1 = inpFixt.debugElement.query(By.css('#input1'));
     input1.nativeElement.value = 'qwerty';
 
     input1.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
+    inpFixt.detectChanges();
 
     expect(input1.nativeElement.value).toBe('');
   });
 
   it('ввод числа 100 в input 1', () => {
-    const input1 = fixture.debugElement.query(By.css('#input1'));
+    const input1 = inpFixt.debugElement.query(By.css('#input1'));
     input1.nativeElement.value = '100';
 
     input1.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
+    inpFixt.detectChanges();
 
     expect(input1.nativeElement.value).toBe('100');
   });
 
   it('ввод букв в input 2', () => {
-    const input2 = fixture.debugElement.query(By.css('#input2'));
+    const input2 = inpFixt.debugElement.query(By.css('#input2'));
     input2.nativeElement.value = 'qwerty';
 
     input2.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
+    inpFixt.detectChanges();
 
     expect(input2.nativeElement.value).toBe('');
   });
 
   it('ввод числа 100 в input 2', () => {
-    const input2 = fixture.debugElement.query(By.css('#input2'));
+    const input2 = inpFixt.debugElement.query(By.css('#input2'));
     input2.nativeElement.value = '100';
 
     input2.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
+    inpFixt.detectChanges();
 
     expect(input2.nativeElement.value).toBe('100');
   });
 
   it('ввод нуля в input 2 при делении', () => {
-    const input2 = fixture.debugElement.query(By.css('#input2'));
+    const input2 = inpFixt.debugElement.query(By.css('#input2'));
     input2.nativeElement.value = '0';
-    const selector = fixture.debugElement.query(By.css('#operationSelector'));
+    const selector = inpFixt.debugElement.query(By.css('#operationSelector'));
     selector.nativeElement.value = "Поделить";
 
     input2.nativeElement.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
+    inpFixt.detectChanges();
 
     expect(input2.nativeElement.value).toBe('');
   });
