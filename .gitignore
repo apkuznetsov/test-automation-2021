@@ -13,3 +13,4 @@
 2-integration-testing/src/main/resources/db/migration/V2__Add_issuing_division.sql
 4-bdd-testing/docker/autotests-0.0.1.jar
 5-frontend-unit-testing/package-lock.json
+6-end-to-end-testing/package-lock.json
