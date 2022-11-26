@@ -14,7 +14,7 @@
 12. [Cypress. Сквозное тестирование веб-приложений](#lab6)
 13. [Cypress. Сквозное тестирование веб-приложения](#quize2e)
 
-## API <a name="lab0"></a>
+## API <a name="quizapi"></a>
 A simple engine for creating and solving quizzes through HTTP API.
 
 ### Running the application
