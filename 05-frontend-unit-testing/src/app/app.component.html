@@ -1,0 +1,9 @@
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+
+  <inputs (calcDataEvent)="calc($event)"></inputs>
+  <input [input]="num3 | rounding:2" [redblackgreen] id="input3" type="number"/>
+
+</div>
