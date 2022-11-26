@@ -1,0 +1,59 @@
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 1, 14, '2020-09-11 01:08:46');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 2, 16, '2020-09-14 10:11:17');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 3, 15, '2020-09-07 02:17:16');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 4, 13, '2020-09-21 10:42:01');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 5, 17, '2020-09-19 08:15:09');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 6, 16, '2020-09-25 03:56:47');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 7, 11, '2020-09-06 06:00:22');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 8, 12, '2020-10-15 01:44:48');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 9, 12, '2020-09-13 11:38:36');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 10, 20, '2020-10-06 03:01:45');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 11, 17, '2020-09-22 05:24:30');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 12, 18, '2020-09-05 01:57:35');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 13, 17, '2020-10-02 05:20:16');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 14, 10, '2020-10-12 22:20:19');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 15, 20, '2020-09-11 03:09:57');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 16, 17, '2020-09-27 06:24:04');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 17, 13, '2020-10-14 22:17:28');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 18, 15, '2020-10-10 12:37:43');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 19, 16, '2020-10-06 18:59:28');
+--
+-- insert into quiz_completed (quiz_user_id, id, quiz_id, completed_at)
+-- values (1, 20, 18, '2020-10-04 10:16:40');
